@@ -56,7 +56,7 @@ def parse_bandit(path: str | Path, root: Path | None = None) -> list[Finding]:
 
 
 def parse_semgrep(path: str | Path, root: Path | None = None) -> list[Finding]:
-    """Semgrep `--json` output: results[] with check_id, path, start.line, extra.{severity,message}."""
+    """Semgrep `--json` output: results[] with check_id, path, start.line, extra.severity/message."""
     doc = _load(path)
     if "results" not in doc:
         raise ReportError("not a Semgrep JSON report (missing 'results')")
