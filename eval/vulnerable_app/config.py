@@ -1,4 +1,4 @@
-"""Sample code for evaluating the triage tool. DELIBERATELY VULNERABLE. Never deploy."""
+"""Sample code for evaluating the triage tool. DELIBERATELY VULNERABLE; all credentials FAKE."""
 
 import yaml
 
