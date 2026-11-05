@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-vuln-triage"
+version = "0.1.0"
+description = "Triage Semgrep/Bandit findings with an LLM and validate every claim against the real code"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31", "pydantic>=2.5"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff", "bandit"]
+
+[project.scripts]
+llmtriage = "llmtriage.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests", "eval"]
+extend-exclude = ["eval/vulnerable_app"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "eval"]
