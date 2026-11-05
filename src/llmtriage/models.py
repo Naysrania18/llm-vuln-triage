@@ -41,6 +41,8 @@ FLAGS = (
     "schema_invalid",  # response was not valid JSON for LLMVerdict
     "quote_not_found",  # cited code does not exist in the file (hallucination)
     "line_out_of_range",  # cited line number is outside the file
+    "line_mismatch",  # quote exists, but not at the line the model claimed
+    "source_unavailable",  # the file could not be read (missing / outside root / too large)
     "quote_far_from_finding",  # quote exists but nowhere near the flagged line
     "disagrees_with_scanner",  # LLM says false positive on a high/high scanner finding
 )
