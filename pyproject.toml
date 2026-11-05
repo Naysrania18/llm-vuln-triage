@@ -12,7 +12,7 @@ requires-python = ">=3.10"
 dependencies = ["requests>=2.31", "pydantic>=2.5"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff", "bandit"]
+dev = ["pytest>=8", "ruff", "bandit==1.9.4"]  # bandit pinned: eval labels match its findings
 
 [project.scripts]
 llmtriage = "llmtriage.cli:main"
