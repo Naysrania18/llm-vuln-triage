@@ -156,8 +156,9 @@ def test_client_requires_key_and_never_shows_it(monkeypatch):
     monkeypatch.delenv("XAI_API_KEY", raising=False)
     with pytest.raises(LLMAuthError):
         OpenAICompatClient()
-    c = OpenAICompatClient(api_key="sk-super-secret-value")
-    assert "sk-super-secret-value" not in repr(c)
+    fake_key = "fake" + "-" * 3 + "not-a-real-key"
+    c = OpenAICompatClient(api_key=fake_key)
+    assert fake_key not in repr(c)
 
 
 def test_client_reads_model_and_url_from_env(monkeypatch):
